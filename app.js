@@ -7,8 +7,15 @@ class Ship {
         this.accuracy = accuracy
     }
     attack() {
+        //Remove Retreat button upon attack
+        document.getElementById('retreat').innerHTML = ``
         if (Math.random() <= attacker.accuracy) {
             defender.hull = defender.hull - attacker.firepower
+            //Prevent Negative Hull values and add Retreat button
+            if(defender.hull<=0){
+                defender.hull=0
+                document.getElementById('retreat').innerHTML = `<button id='retreatBtn'>Retreat</button>`
+            }
             render()
             console.log("Hit! - " + attacker.name + " hit " + defender.name + " for " + attacker.firepower + " hull points!")
             checkWinOrLose()
@@ -41,17 +48,14 @@ function checkWinOrLose() {
     if (playerShip.hull <= 0) {
         document.getElementById('gameStatus').textContent = "You lose!"
         document.getElementById('attack').remove()
-        document.getElementById('retreat').remove()
     } else if (alienShips[0].hull <= 0) {
-//NOT WORKING!
         document.getElementById('gameStatus').textContent = "You defeated " + alienShips[0].name
         alienShips.shift()
         if (alienShips[0]) {
-            document.getElementById('gameStatus').textContent = "Status: A new alien ship has arrived: " + alienShips[0].name
+            alert("Status: A new alien ship has arrived: "+ alienShips[0].name)
         } else {
             document.getElementById('gameStatus').textContent = "Status: You win!"
             document.getElementById('attack').remove()
-            document.getElementById('retreat').remove()
         }
     }
 }
@@ -70,7 +74,7 @@ document.getElementById('attack').addEventListener('click', (evt) => {
 document.getElementById('retreat').addEventListener('click', (evt) => {
     document.getElementById('gameStatus').textContent = "Status: You gave up by retreating - you lose!"
     document.getElementById('attack').remove()
-    document.getElementById('retreat').remove()
+    document.getElementById('retreat').innerHTML = ``
 })
 
 //Initial scoreboard Information
