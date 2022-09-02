@@ -48,6 +48,7 @@ function checkWinOrLose() {
     if (playerShip.hull <= 0) {
         document.getElementById('gameStatus').textContent = "You lose!"
         document.getElementById('attack').remove()
+        document.getElementById('retreat').innerHTML = ``
     } else if (alienShips[0].hull <= 0) {
         document.getElementById('gameStatus').textContent = "You defeated " + alienShips[0].name
         alienShips.shift()
