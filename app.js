@@ -12,8 +12,8 @@ class Ship {
         if (Math.random() <= attacker.accuracy) {
             defender.hull = defender.hull - attacker.firepower
             //Prevent Negative Hull values and add Retreat button
-            if(defender.hull<=0){
-                defender.hull=0
+            if (defender.hull <= 0) {
+                defender.hull = 0
                 document.getElementById('retreat').innerHTML = `<button id='retreatBtn'>Retreat</button>`
             }
             render()
@@ -52,7 +52,7 @@ function checkWinOrLose() {
         document.getElementById('gameStatus').textContent = "You defeated " + alienShips[0].name
         alienShips.shift()
         if (alienShips[0]) {
-            alert("Status: A new alien ship has arrived: "+ alienShips[0].name)
+            alert("Status: A new alien ship has arrived: " + alienShips[0].name)
         } else {
             document.getElementById('gameStatus').textContent = "Status: You win!"
             document.getElementById('attack').remove()
@@ -62,12 +62,12 @@ function checkWinOrLose() {
 
 //Attack Button
 document.getElementById('attack').addEventListener('click', (evt) => {
-    if(attacker !== playerShip){
+    if (attacker !== playerShip) {
         document.getElementById('attack').textContent = "Shoot Lasers at Aliens!"
         attacker.attack()
     } else {
-    document.getElementById('attack').textContent = "Defend Alien Attack!"
-    attacker.attack()
+        document.getElementById('attack').textContent = "Defend Alien Attack!"
+        attacker.attack()
     }
 })
 //Retreat Button
