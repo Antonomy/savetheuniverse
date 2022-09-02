@@ -43,10 +43,11 @@ function checkWinOrLose() {
         document.getElementById('attack').remove()
         document.getElementById('retreat').remove()
     } else if (alienShips[0].hull <= 0) {
-        console.log("You defeated " + alienShips[0].name)
+//NOT WORKING!
+        document.getElementById('gameStatus').textContent = "You defeated " + alienShips[0].name
         alienShips.shift()
         if (alienShips[0]) {
-            console.log("A new alien ship has arrived: " + alienShips[0].name)
+            document.getElementById('gameStatus').textContent = "Status: A new alien ship has arrived: " + alienShips[0].name
         } else {
             document.getElementById('gameStatus').textContent = "Status: You win!"
             document.getElementById('attack').remove()
