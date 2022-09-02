@@ -8,6 +8,7 @@ class Ship {
     attack() {
         if (Math.random() <= attacker.accuracy) {
             defender.hull = defender.hull - attacker.firepower
+            render()
             console.log("Hit! - " + attacker.name + " hit " + defender.name + " for " + attacker.firepower + " hull points!")
             checkWinOrLose()
         } else {
@@ -43,7 +44,31 @@ function checkWinOrLose() {
         if (alienShips[0]) {
             console.log("A new alien ship has arrived: " + alienShips[0].name)
         } else {
-            console.log("You Win!")
+            document.getElementById('gameStatus').textContent = "Status: You win!"
+            document.getElementById('attack').remove()
+            document.getElementById('defend').remove()
+            document.getElementById('retreat').remove()
         }
     }
+}
+
+document.getElementById('attack').addEventListener('click', (evt) => {
+    attacker.attack()
+})
+
+document.getElementById('defend').addEventListener('click', (evt) => {
+    attacker.attack()
+})
+
+document.getElementById('retreat').addEventListener('click', (evt) => {
+    document.getElementById('gameStatus').textContent = "Status: You gave up by retreating - you lose!"
+})
+
+render()
+
+function render() {
+    document.getElementById('playerShipName').textContent = "Name: " + playerShip.name
+    document.getElementById('alienShipName').textContent = "Name: " + alienShips[0].name
+    document.getElementById('playerHP').textContent = "Hull: " + playerShip.hull
+    document.getElementById('alienHP').textContent = "Hull: " + alienShips[0].hull
 }
