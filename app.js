@@ -1,3 +1,4 @@
+//Creating Ship Class and Attack Method
 class Ship {
     constructor(name, hull, firepower, accuracy) {
         this.name = name
@@ -21,8 +22,8 @@ class Ship {
     }
 
 }
-
-const playerShip = new Ship('USS Schwarzenegger', 2000, 5, .7)
+//Instantiating Player and Alien Ships
+const playerShip = new Ship('USS Schwarzenegger', 20, 5, .7)
 const alienShips = [
     new Ship('Alien Ship 1', 3, 2, .6),
     new Ship('Alien Ship 2', 3.5, 2.5, .65),
@@ -31,13 +32,16 @@ const alienShips = [
     new Ship('Alien Ship 5', 5.5, 3.75, 7.75),
     new Ship('Alien Ship 6', 6, 4, .8)
 ]
-
+//Setting Game Start roles
 let attacker = playerShip
 let defender = alienShips[0]
 
+//Check if you won or lost
 function checkWinOrLose() {
     if (playerShip.hull <= 0) {
-        console.log("You Lose!")
+        document.getElementById('gameStatus').textContent = "You lose!"
+        document.getElementById('attack').remove()
+        document.getElementById('retreat').remove()
     } else if (alienShips[0].hull <= 0) {
         console.log("You defeated " + alienShips[0].name)
         alienShips.shift()
@@ -46,26 +50,32 @@ function checkWinOrLose() {
         } else {
             document.getElementById('gameStatus').textContent = "Status: You win!"
             document.getElementById('attack').remove()
-            document.getElementById('defend').remove()
             document.getElementById('retreat').remove()
         }
     }
 }
 
+//Attack Button
 document.getElementById('attack').addEventListener('click', (evt) => {
+    if(attacker !== playerShip){
+        document.getElementById('attack').textContent = "Shoot Lasers at Aliens!"
+        attacker.attack()
+    } else {
+    document.getElementById('attack').textContent = "Defend Alien Attack!"
     attacker.attack()
+    }
 })
-
-document.getElementById('defend').addEventListener('click', (evt) => {
-    attacker.attack()
-})
-
+//Retreat Button
 document.getElementById('retreat').addEventListener('click', (evt) => {
     document.getElementById('gameStatus').textContent = "Status: You gave up by retreating - you lose!"
+    document.getElementById('attack').remove()
+    document.getElementById('retreat').remove()
 })
 
+//Initial scoreboard Information
 render()
 
+//Render function to keep scoreboard updated
 function render() {
     document.getElementById('playerShipName').textContent = "Name: " + playerShip.name
     document.getElementById('alienShipName').textContent = "Name: " + alienShips[0].name
