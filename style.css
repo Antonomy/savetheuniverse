@@ -2,6 +2,7 @@ body {
     background: url(https://thumbs.dreamstime.com/b/spaceship-interior-view-planet-earth-d-rendering-el-space-elements-image-furnished-nasa-94908871.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    margin-top: 10%;
 }
 
 .flexContainer{
@@ -16,6 +17,9 @@ body {
 }
 
 .gameStatus {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     background-color: goldenrod;
     color: black;
 }
@@ -26,5 +30,14 @@ body {
 }
 .box{
     padding: 25px;
+    text-align: center;
     margin: 25px;
+    border: 100px;
+    border-color: aqua;
+}
+
+.button{
+    border-color: aqua;
+    background:teal;
+    
 }
