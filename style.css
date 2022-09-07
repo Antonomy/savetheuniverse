@@ -2,7 +2,27 @@ body {
     background: url(https://thumbs.dreamstime.com/b/spaceship-interior-view-planet-earth-d-rendering-el-space-elements-image-furnished-nasa-94908871.jpg);
 }
 
-h1, h3 {
-    background-color: aquamarine;
+.flexContainer{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+}
+
+.playerStats {
+    background-color: blue;
+    color: white;
+}
+
+.gameStatus {
+    background-color: goldenrod;
     color: black;
+}
+
+.alienStats {
+    background-color: red;
+    color: white;
+}
+.box{
+    padding: 25px;
+    margin: 25px;
 }

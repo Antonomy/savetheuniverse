@@ -11,15 +11,23 @@
 </head>
 
 <body>
-    <h1 id="gameStatus"></h1>
-    <h1>Player Ship:</h1>
-    <h3 id="playerShipName"></h3>
-    <h3 id="playerHP"></h3>
-    <h1>Alien Ship:</h1>
-    <h3 id="alienShipName"></h3>
-    <h3 id="alienHP"></h3>
-    <button id="attack">Shoot Lasers at Aliens!</button>
-    <span id="retreat"></span>
+    <div class="flexContainer">
+        <div class="playerStats box">
+            <h1>Player Ship:</h1>
+            <h3 id="playerShipName"></h3>
+            <h3 id="playerHP"></h3>
+        </div>
+        <div class="gameStatus box">
+            <h1 id="gameStatus"></h1>
+            <button id="attack">Shoot Lasers at Aliens!</button>
+            <span id="retreat"></span>
+        </div>
+        <div class="alienStats box">
+            <h1>Alien Ship:</h1>
+            <h3 id="alienShipName"></h3>
+            <h3 id="alienHP"></h3>
+        </div>
+    </div>
 </body>
 
 </html>
