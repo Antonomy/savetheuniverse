@@ -45,7 +45,7 @@ A totally random game of luck for the user to play vs aliens.
 <br />
 
 ## About The Project
-A totally random game of luck for the user to play vs aliens. This was built utilizing DOM Manipulation
+A totally random game of luck for the user to play vs aliens. This application was built utilizing DOM Manipulation.
 
 ![savetheuniverse](./app_image.png)
 
