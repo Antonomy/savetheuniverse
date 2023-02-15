@@ -9,7 +9,7 @@
 <h3 align="center">Save the Universe</h3>
 
   <p align="center">
-A totally random game of luck for the user to play vs aliens.
+A totally random game of luck for the user to play vs aliens. And fun with DOM manipulation.
     <br />
     <a href="https://github.com/Antonomy/savetheuniverse"><strong>Explore the docs »</strong></a>
     <br />
